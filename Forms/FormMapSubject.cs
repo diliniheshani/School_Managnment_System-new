@@ -41,7 +41,7 @@ namespace School_Managnment_System_new.Forms
                 cmbGrade.Text = "";
                 cmbSection.Text = "";
                 txtTeacher.Text = "";
-                fill_lstOutput();
+                fill_listBox1();
                 //Sucessfull Message after the execution
                 MessageBox.Show(" Data Added Suceesfully !");
 
@@ -57,7 +57,7 @@ namespace School_Managnment_System_new.Forms
 
         private void FormMapsubject_Load(object sender, EventArgs e)
         {
-            fill_lstOutput();
+            fill_listBox1();
             LoadTheme();///loadtheme
         }
         private void LoadTheme()
@@ -141,7 +141,7 @@ namespace School_Managnment_System_new.Forms
                 cmbGrade.Text= "";
                 cmbSection.Text = "";
                 txtTeacher.Text= "";
-                fill_lstOutput();
+                fill_listBox1();
                 //Sucessfull Message after the execution
                 MessageBox.Show(" Data Deleted Suceesfully !");
 
@@ -153,32 +153,12 @@ namespace School_Managnment_System_new.Forms
             }
         }
 
-        private void lstOutput_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //lsouput select
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from Map_Subject ";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            sda.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                cmbSubjectNo.Text = dr["subjectno"].ToString();
-                cmbSubjectName.Text = dr["subjectname"].ToString();
-                cmbGrade.Text= dr["grade"].ToString();
-                cmbSection.Text = dr["section"].ToString();
-                txtTeacher.Text= dr["teacher"].ToString();
-            }
-            con.Close();
-        }
-        public void fill_lstOutput()
+        
+        public void fill_listBox1()
         {
             try
             {
-                lstOutput.Items.Clear();
+                listBox1.Items.Clear();
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
@@ -189,7 +169,7 @@ namespace School_Managnment_System_new.Forms
                 sda.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
                 {
-                    lstOutput.Items.Add(dr["subjectname"].ToString());
+                    listBox1.Items.Add(dr["subjectname"].ToString());
                 }
                 con.Close();
             }
@@ -197,6 +177,28 @@ namespace School_Managnment_System_new.Forms
             {
                 MessageBox.Show("Error" + ex);//Show the exception message
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Map_Subject where subjectname = '" + listBox1.SelectedItem.ToString() + "' ";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();//DataTable
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            sda.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                //data rows
+                cmbSubjectNo.Text = dr["subjectno"].ToString();
+                cmbSubjectName.Text= dr["subjectname"].ToString();
+                cmbGrade.Text = dr["grade"].ToString();
+                cmbSection.Text = dr["section"].ToString();
+                txtTeacher.Text= dr["teacher"].ToString();
+            }
+            con.Close();
         }
     }
 }

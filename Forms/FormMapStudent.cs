@@ -31,7 +31,7 @@ namespace School_Managnment_System_new.Forms
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into Map_Student values ('" + txtstudentno.Text + "','" + txtstudentname.Text + "','" + cmbgrade.Text + "','" + cmbsection.Text + "','" + txtclassteacher.Text + "')";
+                cmd.CommandText = "insert into Map_Student values ('" + txtstudentno.Text + "','" + txtstudentname.Text + "','" + cmbgrade.Text + "','" + cmbsection.Text + "','" + txtclassteacher.Text +"')";
                 cmd.ExecuteNonQuery();
                 con.Close();//close the connection
                 txtstudentno.Text = "";
@@ -39,7 +39,7 @@ namespace School_Managnment_System_new.Forms
                 cmbgrade.Text = "";
                 cmbsection.Text = "";
                 txtclassteacher.Text = "";
-                fill_lstOutput();
+                fill_listBox1();
                 //Sucessfull Message after the execution
                 MessageBox.Show(" Data Added Suceesfully !");
 
@@ -50,10 +50,10 @@ namespace School_Managnment_System_new.Forms
 
             }
         }
-        public void fill_lstOutput()
+        public void fill_listBox1()
         {
             try {
-                lstOutput.Items.Clear();
+                listBox1.Items.Clear();
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
@@ -64,7 +64,7 @@ namespace School_Managnment_System_new.Forms
                 sda.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
                 {
-                    lstOutput.Items.Add(dr["studentname"].ToString());
+                    listBox1.Items.Add(dr["studentname"].ToString());
                 }
                 con.Close();
             }
@@ -76,7 +76,7 @@ namespace School_Managnment_System_new.Forms
 
         private void FormMapStudent_Load(object sender, EventArgs e)
         {
-            fill_lstOutput();
+            fill_listBox1();
             LoadTheme();
         }
         private void LoadTheme()
@@ -112,7 +112,7 @@ namespace School_Managnment_System_new.Forms
                 cmbgrade.Text = "";
                 cmbsection.Text = "";
                 txtclassteacher.Text = "";
-                fill_lstOutput();
+                fill_listBox1();
                 //Sucessfull Message after the execution
                 MessageBox.Show(" Data Deleted Suceesfully !");
 
@@ -173,29 +173,28 @@ namespace School_Managnment_System_new.Forms
             }
         }
 
-        private void lstOutput_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Map_Student ";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();//DataTable
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                sda.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
-                {
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Map_Student where studentname = '"+listBox1.SelectedItem.ToString()+"' ";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();//DataTable
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            sda.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
                 //data rows
-                    txtstudentno.Text = dr["studentno"].ToString();
-                    txtstudentname.Text = dr["studentname"].ToString();
-                    cmbgrade.Text = dr["grade"].ToString();
-                    cmbsection.Text = dr["section"].ToString();
-                    txtclassteacher.Text = dr["classteacher"].ToString();
-                }
-                con.Close();
-
+                txtstudentno.Text = dr["studentno"].ToString();
+                txtstudentname.Text = dr["studentname"].ToString();
+                cmbgrade.Text = dr["grade"].ToString();
+                cmbsection.Text = dr["section"].ToString();
+                txtclassteacher.Text = dr["classteacher"].ToString();
             }
-            } 
+            con.Close();
+        }
+    } 
             }
         
     

@@ -30,7 +30,7 @@ namespace School_Managnment_System_new.Forms
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lstOutput = new System.Windows.Forms.ListBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.txtTeacher = new System.Windows.Forms.TextBox();
             this.cmbSection = new System.Windows.Forms.ComboBox();
             this.cmbGrade = new System.Windows.Forms.ComboBox();
@@ -52,7 +52,7 @@ namespace School_Managnment_System_new.Forms
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.lstOutput);
+            this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.txtTeacher);
             this.panel1.Controls.Add(this.cmbSection);
             this.panel1.Controls.Add(this.cmbGrade);
@@ -68,14 +68,14 @@ namespace School_Managnment_System_new.Forms
             this.panel1.Size = new System.Drawing.Size(725, 405);
             this.panel1.TabIndex = 0;
             // 
-            // lstOutput
+            // listBox1
             // 
-            this.lstOutput.FormattingEnabled = true;
-            this.lstOutput.Location = new System.Drawing.Point(38, 180);
-            this.lstOutput.Name = "lstOutput";
-            this.lstOutput.Size = new System.Drawing.Size(630, 199);
-            this.lstOutput.TabIndex = 17;
-            this.lstOutput.SelectedIndexChanged += new System.EventHandler(this.lstOutput_SelectedIndexChanged);
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(38, 180);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(630, 199);
+            this.listBox1.TabIndex = 17;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // txtTeacher
             // 
@@ -275,6 +275,7 @@ namespace School_Managnment_System_new.Forms
             this.Controls.Add(this.btnupdate);
             this.Controls.Add(this.btnadd);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMapSubject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MAP SUBJECT";
@@ -297,7 +298,7 @@ namespace School_Managnment_System_new.Forms
         private System.Windows.Forms.ComboBox cmbGrade;
         private System.Windows.Forms.ComboBox cmbSubjectNo;
         private System.Windows.Forms.ComboBox cmbSubjectName;
-        private System.Windows.Forms.ListBox lstOutput;
+        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox txtTeacher;
         private System.Windows.Forms.Button btnadd;
         private System.Windows.Forms.Button btnupdate;

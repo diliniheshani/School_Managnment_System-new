@@ -30,7 +30,7 @@ namespace School_Managnment_System_new.Forms
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lstOutput = new System.Windows.Forms.ListBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.txtclassteacher = new System.Windows.Forms.TextBox();
             this.lblclassteacher = new System.Windows.Forms.Label();
             this.cmbsection = new System.Windows.Forms.ComboBox();
@@ -52,7 +52,7 @@ namespace School_Managnment_System_new.Forms
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.lstOutput);
+            this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.txtclassteacher);
             this.panel1.Controls.Add(this.lblclassteacher);
             this.panel1.Controls.Add(this.cmbsection);
@@ -68,15 +68,14 @@ namespace School_Managnment_System_new.Forms
             this.panel1.Size = new System.Drawing.Size(782, 434);
             this.panel1.TabIndex = 0;
             // 
-            // lstOutput
+            // listBox1
             // 
-            this.lstOutput.FormattingEnabled = true;
-            this.lstOutput.Location = new System.Drawing.Point(42, 187);
-            this.lstOutput.Name = "lstOutput";
-            this.lstOutput.Size = new System.Drawing.Size(599, 199);
-            this.lstOutput.TabIndex = 26;
-            
-            this.lstOutput.SelectedIndexChanged += new System.EventHandler(this.lstOutput_SelectedIndexChanged);
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(42, 187);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(599, 199);
+            this.listBox1.TabIndex = 26;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // txtclassteacher
             // 
@@ -270,7 +269,7 @@ namespace School_Managnment_System_new.Forms
         private System.Windows.Forms.ComboBox cmbsection;
         private System.Windows.Forms.TextBox txtclassteacher;
         private System.Windows.Forms.Label lblclassteacher;
-        private System.Windows.Forms.ListBox lstOutput;
+        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnadd;
         private System.Windows.Forms.Button btnupdate;
         private System.Windows.Forms.Button btnclear;
