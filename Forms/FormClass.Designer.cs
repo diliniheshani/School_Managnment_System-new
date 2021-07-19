@@ -83,7 +83,7 @@ namespace School_Managnment_System_new.Forms
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(515, 296);
             this.panel2.TabIndex = 3;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            
             // 
             // nmustudentcount
             // 
@@ -98,6 +98,7 @@ namespace School_Managnment_System_new.Forms
             this.txtaccistantteacherincharge.Name = "txtaccistantteacherincharge";
             this.txtaccistantteacherincharge.Size = new System.Drawing.Size(210, 20);
             this.txtaccistantteacherincharge.TabIndex = 13;
+           
             // 
             // txtteacherincharge
             // 

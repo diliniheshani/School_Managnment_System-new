@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;//To use sql server
+using System.Collections;
 
 namespace School_Managnment_System_new.Forms
 {
@@ -22,11 +23,25 @@ namespace School_Managnment_System_new.Forms
         SqlDataAdapter Sqlda = new SqlDataAdapter();
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O305795\SQLEXPRESS;Initial Catalog=School_Managnment_System;Integrated Security=True");
 
+        Queue teacherQueue = new Queue();
 
         private void FormClass_Load(object sender, EventArgs e)
         {
             LoadTheme();
+            teacherQueue.Enqueue("Malisha Shihari");
+            teacherQueue.Enqueue("Sumith Wandabona");
+            teacherQueue.Enqueue("Wasanthi Kumari");
+            teacherQueue.Enqueue("Amali Madumenu");
+            teacherQueue.Enqueue("Thilini Wasana");
+
+            getAvailableAssistanceTeacher();
         }
+
+        private void getAvailableAssistanceTeacher()
+        {
+            txtaccistantteacherincharge.Text = Convert.ToString(teacherQueue.Peek());
+        }
+
         private void LoadTheme()
         {
             //color Button
@@ -82,6 +97,8 @@ namespace School_Managnment_System_new.Forms
                             //Sucessfull Message after the execution
                 MessageBox.Show(" Data Saved Suceesfully !");
                 loadtable();
+                teacherQueue.Dequeue();
+                getAvailableAssistanceTeacher();
             }
             catch (Exception)//When thare is a error, this used to display that error
             {
@@ -176,9 +193,6 @@ namespace School_Managnment_System_new.Forms
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
     }
 }
