@@ -30,7 +30,7 @@ namespace School_Managnment_System_new.Forms
         {
             LoadTheme();
 
-           
+
         }
         private void LoadTheme()
         {
@@ -93,6 +93,7 @@ namespace School_Managnment_System_new.Forms
                 MessageBox.Show("Error while data adding!"); //Show the exception message
 
             }
+            
         }
 
         private void btnupdate_Click(object sender, EventArgs e)
@@ -154,9 +155,11 @@ namespace School_Managnment_System_new.Forms
             double s = Convert.ToDouble(p) / 9.0;
             txttotalscore.Text = Convert.ToString(p);
             txtaverage.Text = Convert.ToString(s);
+
+           
         }
 
-        private void btnexporttoexcel_Click(object sender, EventArgs e)
+    private void btnexporttoexcel_Click(object sender, EventArgs e)
         {
             Excel.Application xlApp;
             Excel.Workbook xlWorkBook;
@@ -217,8 +220,6 @@ namespace School_Managnment_System_new.Forms
                 int count = 0;
                 con.Open();
                 // label3.Text = "Connection Successfull!";
-
-
 
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;

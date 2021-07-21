@@ -17,7 +17,7 @@ namespace School_Managnment_System_new
         {
             InitializeComponent();
         }
-        //Initializing Database connection
+        
         //Initializing Database connection
         SqlDataAdapter sda = new SqlDataAdapter();
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O305795\SQLEXPRESS;Initial Catalog=School_Managnment_System;Integrated Security=True");
