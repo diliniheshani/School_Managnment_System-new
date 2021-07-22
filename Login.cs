@@ -49,6 +49,11 @@ namespace School_Managnment_System_new
                 ad.Show();
             }
 
+            else
+            {
+                MessageBox.Show("Incorrect Username Or Password, Please Enter Valid Details!!", "Warning!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void btnexit_Click(object sender, EventArgs e)
