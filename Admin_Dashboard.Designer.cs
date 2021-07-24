@@ -181,6 +181,7 @@ namespace School_Managnment_System_new
             // 
             // btnschool
             // 
+            this.btnschool.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.btnschool.FlatAppearance.BorderSize = 0;
             this.btnschool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnschool.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

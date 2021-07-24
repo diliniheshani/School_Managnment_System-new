@@ -58,6 +58,7 @@ namespace School_Managnment_System_new
                     currentButton = (Button)btnsender;
                     currentButton.BackColor = color;
                     currentButton.ForeColor = Color.White;
+                    
                     currentButton.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
                     paneTittleBar.BackColor = color;
                     panelLogo.BackColor = Themcolors.ChangeColorBrightness(color, -0.3);
@@ -71,9 +72,9 @@ namespace School_Managnment_System_new
         private void OpenChildForm(Form childForm, object btnsender)
         {
             if (activateForm != null)
-            {
-                ActiveForm.Close();
-            }
+            
+                activateForm.Close();
+            
             ActivateButton(btnsender);
             activateForm = childForm;
             childForm.TopLevel = false;

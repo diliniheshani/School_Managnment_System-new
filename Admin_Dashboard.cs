@@ -88,19 +88,20 @@ namespace School_Managnment_System_new
         private void OpenChildForm(Form childForm, object btnsender)
         {
             if (activateForm != null)
-            {
-                ActiveForm.Close();
-            }
-            ActivateButton(btnsender);
-            activateForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.panelDesktoppanel.Controls.Add(childForm);
-            this.panelDesktoppanel.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-            lblTittle.Text = childForm.Text;
+            
+                activateForm.Close();
+
+                ActivateButton(btnsender);
+                activateForm = childForm;
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
+                this.panelDesktoppanel.Controls.Add(childForm);
+                this.panelDesktoppanel.Tag = childForm;
+                childForm.BringToFront();
+                childForm.Show();
+                lblTittle.Text = childForm.Text;
+            
         }
 
         private void btnschool_Click(object sender, EventArgs e)

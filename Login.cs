@@ -42,11 +42,13 @@ namespace School_Managnment_System_new
             {
                 Admin_Dashboard ad = new Admin_Dashboard();
                 ad.Show();
+                this.Hide();
             }
             else if (Username == "Staff" && Password == "3692")
             {
                 Staff_Dashboard ad = new Staff_Dashboard();
                 ad.Show();
+                this.Hide();
             }
 
             else
@@ -67,10 +69,10 @@ namespace School_Managnment_System_new
             {
                 Application.Exit();
             }
-            else
-            {
-                this.Show();
-            }
+            //else
+            //{
+            //    this.Show();
+            //}
         }
 
         private void checkpassword_CheckedChanged(object sender, EventArgs e)
